@@ -1,8 +1,48 @@
 <!-- "ls" para ver los archivos o carpetas en la ubicacion actual
 "cd" + directorio para entras a la carpeta
- "git init" para inicializar el repositorio
-"git status" para asegurarte que estas en un repositorio de Git y que el archivo esta siendo reconocido
+ 
+"git init" para inicializar el repositorio
+
+ "git status" para asegurarte que estas en un repositorio de Git y que el archivo esta siendo reconocido
+
 "git add ." para añadir el seguimiento de todos los archivos de la carpeta
+
 "git add (nombre del archivo)" para añadir individualmente
 (use "git rm --cached <file>..." to unstage) 
- "git commit -m "mensaje" " para crear un guardado y un mensaje corto pero descriptivo  -->
+
+    "git commit -m "mensaje" " para crear un guardado y un mensaje corto pero descriptivo
+
+ HEAD: Estado actual de nuestro código, es decir, donde nos colocó Git
+
+Working tree: Lugar donde los archivos realmente están siendo almacenados
+
+index: Lugar donde Git almacena lo que será commiteado, es decir, la ubicación entre el working tree y el repositorio de Git en sí.
+
+*Creamos un archivo .gitignore y dentro de agregamos los archivos que no quiero que git vea 
+agregamos .gitignore y hacemos commit
+
+**se dice que nunca hay que hacer un commit de un archivo que no funciona, solo en cada modificacion significativa se tiene que crear un commit, aunque si dice el jefe mira una modificacion rapida aqui si no es significativa entonces no. Pero no exixte una regla de cuando commitear, pero existen recomendaciones, siempre que exista una alteracion hay que comitear, cuando se corrige un bug, para que al final un conjunto de commits generen un sistema como un todo 
+
+"cd .." regresa un espacio atras o carpeta
+
+mkdir (nombre de carpeta) -crea una nueva carpeta
+
+"git init --bare" genera un espacio paar solo guardas las modificaciones conviertiendolo en un repositorio remoto; Con este comando creamos un repositorio que no tendrá la working tree, o sea, no contendrá una copia de nuestros archivos. Como el repositorio servirá solo como servidor, para que otros miembros del equipo sincronicen sus trabajos, disminuimos espacio de almacenamiento de esta forma.
+
+"git remote" sirve para saber que servidores esta reconociendo git actualmente
+
+"git remote -v" sirve para saber que servidores esta reconociendo git actualmente y su direccion de ubicacion (fetch = lugar de donde vamos a recibir) (push = donde vamos a poner)
+
+"git remote add (nombre que le quiero identificar) (ruta donde se encuentra)" ejemplo $ git remote add servidorlocal C:/Users/LASS/Documents/ALURA/servidor_g ; De esta forma tendremos un link de nuestro repositorio local con el repositorio remoto, que llamamos de nombre-repositorio, que está almacenado en camino/del/repositorio.
+
+git clone /c/Users/LASS/Documents/ALURA/servidor_git/ proyecto_invitado  ** esto clonara el servidor en una carpeta creada con nombre proyecto_invitado dentro de la carpeta recien creada "invitado"
+
+"cd ../.." este comando me permite ir dos veces atras en carpetas
+
+"git push servidorlocal master" este comando empuja datos al servidor local del master
+
+origin resultado de git remote es el nombre por defecto que git asigana a un repositorio nuevo
+$ git remote rename origin local con este comando cambiamos el nombre de origin a local
+
+Entonces el proceso de guardado en el servidor seria git status para verificar que cambios hay
+luego añadirlo con git add (archivo) luego git commit -m "texto identificador" ; y empujar al servior con  git push servidorlocal master de servidorlocal que es como le llamamos al espacio de invitado al serviodr master -->
