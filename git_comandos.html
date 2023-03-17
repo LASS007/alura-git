@@ -45,4 +45,48 @@ origin resultado de git remote es el nombre por defecto que git asigana a un rep
 $ git remote rename origin local con este comando cambiamos el nombre de origin a local
 
 Entonces el proceso de guardado en el servidor seria git status para verificar que cambios hay
-luego añadirlo con git add (archivo) luego git commit -m "texto identificador" ; y empujar al servior con  git push servidorlocal master de servidorlocal que es como le llamamos al espacio de invitado al serviodr master -->
+luego añadirlo con git add (archivo) luego git commit -m "texto identificador" ; y empujar al servior con  git push servidorlocal master de servidorlocal que es como le llamamos al espacio de invitado al serviodr master
+-si cambiamos de usuario tenemos que hacer un push y luego un "git log -p" para ver las modificaciones por linea y para salir es con :q 
+
+Además de agregar repositorios remotos para sincronizar los datos, vimos que git clone trae un repositorio remoto a nuestra computadora, creando un repositorio local.
+
+Al modificar el código en nuestro repositorio local, ¿cómo enviamos las modificaciones a el repositorio remoto?
+git push [repositorio] master ; De esta forma enviamos las modificaciones de nuestra Branch master (hablaremos más sobre branches dentro de poco) hacia el repositorio remoto. Basta con substituir [repositorio] por el nombre que dimos al repositorio al agregarlo. Ahora, para traer los datos que están en el repositorio remoto, podemos utilizar git pull [repositorio] master.
+
+-con la cuenta de github se inicia un repositrio en la nube de la siguiente manera 
+añadir el repositorio
+git remote add origin https://github.com/LASS007/alura-git.git
+
+-este comando no lo saltamos donde main ahora es master por temas politicos o sociales
+git branch -M main
+
+hacer un pusch y -u significa que cada vez que hacemos un push a nuetra branch master siempre ira a nuestra origin al parecer en automatico por eso nos da mejor control no agregarlo y hacer cada vez 
+git push -u origin main
+
+-asi quedria pues
+git push origin master
+
+"git branch" ejecuta para saber en que rama estoy
+
+"git branh titulo" se crea una brach con nombre titulo
+
+"git checkout titulo" cambio a trabajar en la brach titulo
+"git commit" paar guardar ramas
+
+"git checkout -b lista" cambiara a lista y crear rama "-b" (branch) lista
+
+-Ahora que cree la branch titulo y lista con "git log" puedo ver los cambias de master hasta donde se creo la brach y se dice que master es el proyecto final ahora como actualizar los cambios de titulo lista a master? 
+
+git checkout master
+y
+
+git merge titulo
+
+De esta forma colocaremos el HEAD en la Branch master, o sea, haremos que nuestro código esté en el estado que lo dejamos con el últimocommit en master. Después, uniremos el trabajo de la Branch titulo con la Branch actual (master).
+
+"git log --graph" manda un historial de cambios y sales con q o :q
+
+ctrl + C para parar la linea que estamos modificando
+
+El merge junta los trabajos y genera un merge commit. El rebase aplica los commits de otra Branch en la Branch actual. 
+ ->
